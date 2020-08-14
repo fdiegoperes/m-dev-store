@@ -383,9 +383,6 @@ body{
   color: #CCC;
 }
 
-.center-all{
-  text-align: center;
-}
 
 /* Responsive behaviors */
 @media(max-width: 991px){
@@ -432,3 +429,14 @@ body{
   }
 }
 
+.center-all{
+  text-align: center;
+}
+
+.center-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-radius: 50%;
+}

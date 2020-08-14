@@ -1,14 +1,13 @@
 <div class="panel panel-default sidebar-menu"><!-- panel panel-default sidebar Begin -->
 
-  <div class="panel-heading">
+  <div class="panel-heading center-all">
     <div class="center-all">
-      <img class="img-responsive" src="customer_images/peres.jpg" alt="Peres">
-    </div>
+      
+      <img class="img-responsive center-img" src="customer_images/peres.jpg" alt="Peres">
+    
+      </br>
 
-    </br>
-
-    <div class="center-all">
-      <h3 class="panel-title">
+      <h3 class="panel-title center-all">
         Name: @FDiegoPeres
       </h3>
     </div>
