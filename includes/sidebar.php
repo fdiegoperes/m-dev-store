@@ -6,11 +6,13 @@
   <div class="panel-body"> <!-- panel-body Begin -->
 
     <ul class="nav nav-pills nav-stacked category-menu">
-      <li><a href="#">Jackets</a></li>
-      <li><a href="#">Accessories</a></li>
-      <li><a href="#">Shoes</a></li>
-      <li><a href="#">Coats</a></li>
-      <li><a href="#">T-Shirts</a></li>
+      
+      <?php 
+      
+        getPCategories();
+
+      ?>
+
     </ul>
 
   </div> <!-- panel-body Finish -->
@@ -24,10 +26,13 @@
   <div class="panel-body"> <!-- panel-body Begin -->
 
     <ul class="nav nav-pills nav-stacked category-menu">
-      <li><a href="#">Men</a></li>
-      <li><a href="#">Women</a></li>
-      <li><a href="#">Kids</a></li>
-      <li><a href="#">Others</a></li>
+
+      <?php 
+
+        getCategories();
+      
+      ?>
+
     </ul>
 
   </div> <!-- panel-body Finish -->

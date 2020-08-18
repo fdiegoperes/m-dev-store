@@ -1,3 +1,7 @@
+<?php 
+  include('includes/db.php');
+?>
+
 <div id="footer"> <!-- footer Begin -->
   <div class="container"> <!-- container Begin -->
     <div class="row"> <!-- row Begin -->
@@ -30,11 +34,30 @@
         <h4>Top Product Categories</h4>
 
         <ul>
-          <li><a href="#">Jackets</a></li>
-          <li><a href="#">Acessories</a></li>
-          <li><a href="#">Coats</a></li>
-          <li><a href="#">Shoes</a></li>
-          <li><a href="#">T-Shirts</a></li>
+          <?php 
+          
+            $get_p_cats = "select * from product_categories";
+
+            $run_p_cats = $conn->query($get_p_cats);
+
+            while($row_p_cats=$run_p_cats->fetch()) {
+
+              $p_cat_id = $row_p_cats['p_cat_id'];
+              $p_cat_title = $row_p_cats['p_cat_title'];
+
+              echo "
+              
+                <li>
+                  <a href='shop.php?p_cat=$p_cat_id'>
+                    $p_cat_title
+                  </a>
+                </li>
+              
+              ";
+
+            }
+          
+          ?>
         </ul>
 
         <hr class="hidden-md hidden-lg">
@@ -66,10 +89,12 @@
           Don't miss our latest updates.
         </p>
 
-        <form action="" method="post">
+        <form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=DiarioLondonOn', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" method="post">
           <div class="input-group"> <!-- input-group Begin -->
 
             <input type="text" class="form-control" name="email">
+
+            <input type="hidden" value="DiarioLondonOn" name="uri"/><input type="hidden" name="loc" value="en_US"/>
 
             <span class="input-group-btn">
               <input type="submit" value="Subscribe" class="btn btn-default">

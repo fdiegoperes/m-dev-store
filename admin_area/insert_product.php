@@ -102,14 +102,14 @@
             <div class="form-group">
               <label class="col-md-3 control-label">Product Image 2</label>
               <div class="col-md-6">
-                <input name="product_img2" type="file" class="form-control" required>
+                <input name="product_img2" type="file" class="form-control">
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-md-3 control-label">Product Image 3</label>
               <div class="col-md-6">
-                <input name="product_img3" type="file" class="form-control" required>
+                <input name="product_img3" type="file" class="form-control">
               </div>
             </div>
 
@@ -186,13 +186,10 @@
     $insert_product = "insert into product (p_cat_id, cat_id, product_title, product_img1, product_img2,product_img3, product_price, product_keywords, product_des) values (?,?,?,?,?,?,?,?,?)";
 
     $conn->prepare($insert_product)->execute([$product_cat, $cat, $product_title, $product_img1, $product_img2,$product_img3, $product_price, $product_keywords, $product_desc]);
+    echo "<script>alert('Product has been inserted successfuly.');</script>";
+    echo "<script>window.open('insert_product.php', '_self');</script>";
 
-    if($run_product) {
-
-      echo "<script>alert('Product has been inserted successfuly.');</script>";
-      echo "<script>window.open('insert_product.php', '_self');</script>";
-
-    }
+    
 
   }
 ?>
