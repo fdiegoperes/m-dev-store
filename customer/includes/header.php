@@ -1,8 +1,32 @@
 <?php 
 
   session_start();
-  include('db.php');
-  include('../functions/functions.php');
+  include('includes/db.php');
+  include('functions/functions.php');
+
+?>
+
+<?php 
+
+  if(isset($_GET['pro_id'])){
+
+    $product_id = $_GET['pro_id'];
+    $get_product_id = "select * from product where product_id = '$product_id'";
+    $product = $conn->query($get_product_id)->fetch();
+    $product_cat_id = $product['p_cat_id'];
+    $pro_id = $product['product_id'];
+    $pro_title = $product['product_title'];
+    $pro_price = $product['product_price'];
+    $pro_desc = $product['product_des'];
+    $pro_img1 = $product['product_img1'];
+    $pro_img2 = $product['product_img2'];
+    $pro_img3 = $product['product_img3'];
+
+    $get_p_cat = "select * from product_categories where p_cat_id='$product_cat_id'";
+    $row_p_cat = $conn->query($get_p_cat)->fetch();
+    $p_cat_title = $row_p_cat['p_cat_title'];
+    
+  }
 
 ?>
 
@@ -22,7 +46,7 @@
     <div class="container"> <!-- container Begin -->
       <div class="col-md-6 offer"> <!-- col-md-6 offer Begin -->
         
-        <a href="" class="btn btn-success btn-sm">
+        <a href="#" class="btn btn-success btn-sm">
           
           <?php 
             
@@ -53,7 +77,17 @@
             <a href="../cart.php">Go To Cart</a>
           </li>
           <li>
-            <a href="../checkout.php">Login</a>
+            <a href="../checkout.php">
+              <?php
+                if(!isset($_SESSION['customer_email'])) {
+                  echo "<a href='checkout.php'> Login </a>";
+
+                } else {
+                  echo "<a href='logout.php'> Logout </a>";
+                  
+                }
+              ?>
+            </a>
           </li>
         </ul> <!-- menu Finish -->
 
